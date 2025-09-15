@@ -56,8 +56,8 @@ en caso de que el lector diera error al leer un archivo csv, se debe añadir:
 """
 
 
-def dtaaChargeCSV(x: str, hdr: int, skip_indx: int, naval: list):
-    data = pd.read_csv('x', header = 0, skiprows = [y for y in range(a,b)], na_valuea = naval)
+def dtaaChargeCSV(x: str, hdr: int, si_a: int, si_b: int, naval: list):
+    data = pd.read_csv('x', header = hdr, skiprows = [y for y in range(si_a,si_b)], na_valuea = naval)
     return data
     
 
@@ -249,4 +249,5 @@ def numericCols(df: pd.DataFrame):
 #remover un tipo de dato, en este caso podria ser mejor usar exclude para remover el tipo objetc
 def numericOnly(x:pd.DataFrame):
     return x.select_dtypes(include = ['float64','int64'])
+
 #función para 
