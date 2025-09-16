@@ -227,11 +227,11 @@ solo a aquellas columnas de este tipo
 """
 
 
-def LR_corr(df: pd.DataFrame, corr_col: str):
-    corr_matrix = df.corr()
+def lr_corr(df: pd.DataFrame, corr_col: str):
+    corr_matrix = df.corr(numeric_only = True)
     local_corr = corr_matrix[corr_col]
-    pCorr = local_corr[local_corr>0.5]
-    nCorr = local_corr[local_corr<-0.4]
+    pCorr = local_corr[local_corr>0.25]
+    nCorr = local_corr[local_corr<-0.25]
     print(f'positive correlations: {pCorr}\nnegative correlations {nCorr}')
     
 #funcion para localizar columnas numéricas:
@@ -251,3 +251,4 @@ def numericOnly(x:pd.DataFrame):
     return x.select_dtypes(include = ['float64','int64'])
 
 #función para 
+
