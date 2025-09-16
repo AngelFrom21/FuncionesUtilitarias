@@ -252,3 +252,26 @@ def numericOnly(x:pd.DataFrame):
 
 #función para 
 
+#función de mapa de color, esta funcion regrese un mapa usando atributos de longitud y latitud
+#la funcion es para un solo mapa:
+
+def mapvis(df: pd.DataFrame, color):
+  fig, ax = plt.subplots()
+
+  ax.scatter(
+      
+      df['longitud'],
+      df['latitud'],
+      alpha = 0.5,
+      s = 25,
+      c = df[color],
+      cmap = 'jet'
+  )
+
+  ax.set_xlabel('longitud')
+  ax.set_ylabel('latitud')
+  ax.set_title('Mapa del estado')
+  fig.colorbar(ax.collections[0])
+  return plt.show()
+
+#versión generalizada para k mapas usando longitud, latitud y una caracteritica para el color.
